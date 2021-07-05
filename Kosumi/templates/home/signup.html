@@ -1,0 +1,28 @@
+{% extends "home/Base.html" %}
+{% block content %}
+<style>
+        
+    label{
+        float: left;
+        color: blue;
+    }
+</style>
+
+<div style="margin-top: 2%;">
+   
+        <center>
+          <div style="width: 40%; background-color: lightblue;border-radius: 25px;padding:2% 5% 0 5% ;">
+            <form method="POST" style="height: 15%;margin: auto;padding: 0;" >
+              {% csrf_token %}
+              <div class="form-group">
+                  {{form.as_p}}
+              <button type="submit" class="btn btn-success">Sign up</button>
+              </div>
+
+            </form>
+         
+          </div>
+        </center>
+      </div>
+
+{% endblock content %}

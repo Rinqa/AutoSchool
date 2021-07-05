@@ -1,0 +1,68 @@
+{%extends "home/Base.html"%}
+{% load static %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-size: 16px;  
+  /* padding: 12px 20px 12px 40px; */
+  border: 1px solid gray;
+  border-radius:2%;
+  margin-bottom: 12px;
+
+  /* height: 10px; */
+
+}
+
+#myTable {
+  border-collapse: collapse;
+  border: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+<div class="top">
+<h6>Kerko ne baze te Muajit:</h6>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Emri..." title="Type in a name">
+</div>
+<table id="myTable">
+  <tr class="header">
+      <th style="width: 8%;">Emri</th>
+    <th style="width: 15%;">Muaji</th>
+    <th style="width: 15%;">Viti</th>
+    <th style="width: 20%;">Paga</th>
+  </tr>
+  
+  {% for j in pag %}
+    <tr>
+        <td><a href="{% url 'editpagesatins' j.pk %}">{{j.Instruktori}}</a></td>
+        <td>{{j.muaji}}</td>
+        <td>{{j.viti}}</td>
+        <td>{{j.paga}}€</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+
+</body>
+{% endblock content %}

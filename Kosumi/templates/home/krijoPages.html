@@ -1,0 +1,53 @@
+{%extends "home/Base.html"%}
+{% load static %}
+{% block content %}
+
+<center>
+<form >
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Emri: </label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="Emri...">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Mbiemri:</label>
+        <input type="text" class="form-control" id="inputPassword4" placeholder="Mbiemri...">
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Shuma ne Numer: </label>
+          <input type="number" class="form-control" id="inputEmail4" placeholder="Shuma ne Numer...">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Shuma ne Shkrim:</label>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="Shuma ne Shkrim...">
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="inputAddress">Pershkrimi</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Pershkrimi....">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Data:</label>
+      <input type="date" id="birthday" name="birthday">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Pranoi:</label>
+        <input type="text" class="form-control" id="inputCity">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Nenshkrimi:</label>
+        <input type="text" readonly class="form-control" id="inputPassword4">
+      </div>
+      
+    </div>
+    
+    <button onclick="window.print();return false;">Print</button>
+  </form>
+</center>
+<p>Vula:</p>
+
+
+{% endblock content %}

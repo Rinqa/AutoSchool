@@ -1,0 +1,91 @@
+{%extends "home/Base.html"%}
+{% load static %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ 
+ a {
+        color: black;
+    }
+
+    td {
+        text-align: center;
+        border-right-color: black;
+        height: 10px;
+        border: solid white 1px;
+        font-size: 16px;
+
+
+    }
+
+    tr {
+        width: 10%;
+    }
+
+    th {
+        border: solid white 1px;
+
+    }
+
+</style>
+
+<body>
+  <div class="top">
+    <h6>Kerko ne baze te Muajit:</h6>
+    <input type="text" id="myInput" onkeyup="myFunction1()" placeholder="Emri..." title="Type in a name">
+  </div>
+
+  <table  id="myTable">
+    <tr>
+      <th style="width: 8%;">Muaji</th>
+      <th style="width: 8%;">Viti</th>
+      <th >Kontabilisti</th>
+      <th >Poligoni</th>
+      <th >Qeraja</th>
+      <th >Rryma</th>
+      <th >Ligjeruesi</th>
+      <th >Kontributet</th>
+        
+        <th>Administrata</th>
+      
+    </tr>
+
+    {% for j in pag %}
+    <tr class="item">
+      <td><a href="{% url 'editpagesat' j.pk%}">{{ j.muaji }}</a></td>
+      <td>{{ j.viti }}</td>
+      <td>{{ j.kontabilisti }}€</td>
+      <td>{{ j.poligoni }}€</td>
+      <td>{{ j.qeraja }}€</td>
+      <td>{{ j.rryma }}€</td>
+      <td>{{ j.ligjerusi }}€</td>
+      <td>{{ j.Kontributet }}€</td>
+      <td>{{j.Administrata}}€</td>
+      
+    </tr>
+    {% endfor %}
+  </table>
+
+  <script>
+    function myFunction1() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,72 @@
+{%extends "home/Base.html"%}
+{% load static %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#myInput {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  font-size: 16px;  
+  /* padding: 12px 20px 12px 40px; */
+  border: 1px solid gray;
+  border-radius:2%;
+  margin-bottom: 12px;
+
+  /* height: 10px; */
+
+}
+
+#myTable {
+  border-collapse: collapse;
+  border: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body>
+<div class="top">
+<h6>Kerko ne baze te Emrit:</h6>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Emri..." title="Type in a name">
+</div>
+<table id="myTable">
+  <tr class="header">
+      <th style="width: 8%;">NrRendor</th>
+    <th style="width: 15%;">Emri</th>
+    <th style="width: 20%;">Prindi</th>
+    <th style="width: 20%;">Mbiemri</th>
+    <th style="width: 20%;">Nr Personal</th>
+    <th >Kursi</th>
+  </tr>
+  
+  {% for j in kli %}
+    <tr>
+        <td >{{j.id}}</td>
+        <td><a href="{% url 'terheq' j.pk %}">{{j.Emri}}</a></td>
+        <td>{{j.Emri_Prindit}}</td>
+        <td>{{j.Mbiemri}}</td>
+        <td>{{j.NrPersonal}}</td>
+        <td>{{j.Kursi}}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+
+</body>
+{% endblock content %}

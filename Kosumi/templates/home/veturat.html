@@ -1,0 +1,19 @@
+{% extends "home/Base.html" %}
+{% block content %}
+<div class="row">
+    {% for i in vet %}
+    <div class="col-md-3 col-sm-5">
+        <div class="card" style='margin-top: 2%;background-color: azure;margin-bottom: 8%;'>
+            <img src="{{ i.fotoja.url }}" class="card-img-top" alt="{{ i.fotoja.url }}" >
+            <div class="card-body">
+                <a>Modeli: {{i.Modeli}}</a>
+                <h6 class="card-title">Targat: {{ i.targat }}</h6>
+                <h6 class="card-title">kategoria: {{i.KategoriaMjetit}}</h6>
+                <a href="{% url 'vetura' i.pk%}">Edit </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

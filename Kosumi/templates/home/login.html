@@ -1,0 +1,19 @@
+{% extends "home/Base.html" %}
+{% block content %}
+<div >
+  <center style="margin-top: 15%;">
+    <article style="background-color: lightblue;width: 40%;border-radius: 25px;">
+      <form style="height: 15%;width: 70%;" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group"><br>
+          {{form.as_p}}
+          <button type="submit" class="btn btn-primary" >Log In</button><a>
+        </div>
+                  
+                    
+      </form>
+    </article>
+  </center>
+</div>
+
+{% endblock content %}

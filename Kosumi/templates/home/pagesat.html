@@ -1,0 +1,93 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<style>
+ td{
+   font-size:16px;
+   background-color: coral;
+   text-align: center;
+   border: 1px solid black;
+ }
+ tr{
+   background-color: coral;
+ }
+ table{
+   border: 1px solid black;
+   background-color: coral;
+ }
+</style>
+
+<head>
+  <title>Pagesat</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="{% static 'js/jquery.table2excel.js'%}"></script>
+</head>
+
+<body>
+
+
+  <table class="table2excel" data-tableName="Test Table 2">
+    <thead>
+      <tr>
+        <td style="width: 10%;">nrRendor</td>
+        <td style="width: 10%;">Muaji</td>
+        <td style="width: 10%;">Kontabilisti</td>
+        <td style="width: 10%;">Poligoni</td>
+        <td style="width: 10%;">Qeraja</td>
+        <td style="width: 10%;">Rryma</td>
+        <td style="width: 10%;">Ligjeruesi</td>
+        <td style="width: 10%;">Kontributet</td>
+        <td style="width: 10%;">Viti</td>
+        <td style="width: 10%;">Administrata</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for j in pag %}
+      <tr>
+        <td>{{j.id}}</td>
+        <td>{{ j.muaji }}</td>
+        <td>{{ j.kontabilisti }}€</td>
+        <td>{{ j.poligoni }}€</td>
+        <td>{{ j.qeraja }}€</td>
+        <td>{{ j.rryma }}€</td>
+        <td>{{ j.ligjerusi }}€</td>
+        <td>{{ j.Kontributet }}€</td>
+        <td>{{ j.viti }}</td>
+        <td>{{j.Administrata}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+  <button class="exportToExcel">Download</button>
+
+  <input type="button" value="Go back!" onclick="history.back()">
+
+
+
+  <script>
+    $(function () {
+      $(".exportToExcel").click(function (e) {
+        var table = $(this).prev('.table2excel');
+        if (table && table.length) {
+          var preserveColors = (table.hasClass('table2excel_with_colors') ? true : false);
+          $(table).table2excel({
+            exclude: ".noExl",
+            name: "Excel Document Name",
+            filename: "pagesat" + ".xls",
+            fileext: ".xls",
+            exclude_img: true,
+            exclude_links: true,
+            exclude_inputs: true,
+            preserveColors: preserveColors
+          });
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>
