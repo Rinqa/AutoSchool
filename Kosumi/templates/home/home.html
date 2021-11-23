@@ -17,9 +17,19 @@
 
 <body class="sb-nav-fixed">
   <img src="{% static 'img/hello.jpg'%}" style="width: 100%; height: 50%;"><br>
-  <img src="{% static 'img/auto.png'%}" style="width: 100%;  height: 50%;"><br>
+  <!-- <img src="{% static 'img/auto.png'%}" style="width: 100%;  height: 50%;"><br> -->
   
-
+  
+   {% if user.is_authenticated%}
+  {%for i in voz%}
+  
+    <ul >
+    <li><h6>{{i.Emri}}  |  {{i.Data}} | {{i.Ora}}</h6></li>
+    
+        
+    </ul>
+    {%endfor%}
+    {%endif%}
 </body>
     <script></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

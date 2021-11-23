@@ -51,7 +51,6 @@
         <a class="navbar-brand" href="{% url 'home'%}">Auto Shkolla Kosumi</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" method="GET"
             action="{% url 'klienti_Search' %}">
             <div class="input-group">
@@ -60,7 +59,6 @@
 
             </div>
         </form>
-        <!-- Navbar-->
         <ul class="navbar-nav ml-auto ml-md-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
@@ -79,7 +77,7 @@
                     {% endif %}
                 </div>
             </li>
-        </ul> 
+        </ul>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -89,7 +87,7 @@
                         <div class="sb-sidenav-menu-heading">Auto Shkolla Kosumi</div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
                             aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Klientat
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -98,28 +96,28 @@
                             <nav class="sb-sidenav-menu-nested nav">
 
                                 <a class="nav-link" href="{% url 'cli'%}">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>klientat
+                                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>klientat
                                 </a>
                                 <a class="nav-link" href="{% url 'regjistro-klientin'%}">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>Shto klient
+                                    <div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div>Shto klient
                                 </a>
-                                <!-- <a class="nav-link" href="{% url 'paterhequr'%}">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>Dokumentat
+                                <a class="nav-link" href="{% url 'paterhequr'%}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>Dokumentat
                                     e pa Terhequra
-                                </a> -->
+                                </a>
                                 <a class="nav-link" href="{% url 'terhequr'%}">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>Dokumente
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>Dokumente
                                     Terhequr
                                 </a>
                                 <a class="nav-link" href="{% url 'patatim'%}">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>Klientat pa
+                                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>Klientat pa
                                     Tatim
                                 </a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                             aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Instruktor
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -128,47 +126,54 @@
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
 
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{% url 'ins'%}">Instruktoret</a>
-                                    <a class="nav-link" href="{% url 'regjistro-ins'%}">Shto Instruktor</a>
-                                    <a class="nav-link" href="{% url 'pagins'%}">Pagesat e instruktoreve</a>
-                                    <a class="nav-link" href="{% url 'shtopagesIn'%}">Shto Pages te Instruktorit</a>
-
+                                    <a class="nav-link" href="{% url 'ins'%}"><div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>Instruktoret</a>
+                                    <a class="nav-link" href="{% url 'regjistro-ins'%}"><div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div>Shto Instruktor</a>
+                                    <a class="nav-link" href="{% url 'pagins'%}"><div class="sb-nav-link-icon"><i class="fa fa-book"></i></div>Pagesat e instruktoreve</a>
+                                    <a class="nav-link" href="{% url 'shtopagesIn'%}"><div class="sb-nav-link-icon"><i class="fas fa-plus-square"></i></div>Shto Pages te Instruktorit</a>
+                                    
                                 </nav>
                             </nav>
                         </div>
-
+                        <a class="nav-link" href="{% url 'voz'%}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
+                            Vozitja
+                        </a>
+                        <a class="nav-link" href="{% url 'regjistro-voz'%}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-plus-square"></i></div>
+                            Shto vozitjen
+                        </a>
                         <a class="nav-link" href="{% url 'vet'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
                             Veturat
                         </a>
                         <a class="nav-link" href="{% url 'regjistro-vet'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-plus"></i></div><div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
                             Shto Veture
                         </a>
 
                         <a class="nav-link" href="{% url 'asd'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                             Terheq Dokumentat
                         </a>
                         <a class="nav-link" href="{% url 'shtopagesat'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>
                             Shto Pagesat
                         </a>
                         <a class="nav-link" href="{% url 'pags'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>
                             Pagesat
                         </a>
                         <a class="nav-link" href="{% url 'krijoPagese'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-paperclip"></i></div>
                             Flete Pagese
                         </a>
                         <div class="sb-sidenav-menu-heading">Merr Te Dhenat</div>
                         <a class="nav-link" href="{% url 'pag'%}" style="padding-bottom: 0;">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-download"></i></div>
                             Shkarko Pagesat
                         </a>
                         <a class="nav-link" href="{% url 'inst'%}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-download"></i></div><div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Shkarko Pagesat E Instruktoreve
                         </a>
                     </div>

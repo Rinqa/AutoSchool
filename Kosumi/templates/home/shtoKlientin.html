@@ -6,7 +6,6 @@
         background-color: transparent;
         font-size: 16px;
         flex-grow:center ;
-        border-bottom: 1px solid black;
         
     }
 
@@ -17,12 +16,24 @@
         border-bottom: 1px solid black;
 
     }
-
+    
     .vij {
         background-color: red;
     }
     
 </style>
-
-
+<div class="card  justify-content-md-center" style="width:600px;padding:auto;margin-top:5%;margin-left:auto ;margin-right: auto;">
+    <form class="" method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <fieldset style="float: left; padding-left: 10%;">
+              {{ form.as_p}}
+              <br>
+              <div>
+                <button class="btn btn-primary" type="submit" name="button">Post</button>
+              </div>
+            </fieldset>
+          </form>
+    </div>             
+    
+ 
 {% endblock content %}

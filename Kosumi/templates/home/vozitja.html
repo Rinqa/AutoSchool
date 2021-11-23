@@ -1,0 +1,68 @@
+{%extends "home/Base.html"%}
+{% load static %}
+{% block content %}
+<style>
+    a {
+        color: black;
+    }
+
+    td {
+        text-align: center;
+
+    }
+
+    td {
+        height: 10px;
+    }
+</style>
+
+<body class="sb-nav-fixed">
+    <div class="card mb-4">
+        <div class="card-header">
+            <center><i class="fas fa-table mr-1"></i>
+            Vozitja</center>
+        </div>
+        <div class="card-body">
+            <div class="outline"></div>
+            <ul class="list-group">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <th>NR</th>
+                            <th>Emri</th>
+                            <th>Data</th>
+                            <th>Ora</th>
+                            <th>Pagesa</th>
+                            <th>Statusi</th>
+                            <th>Pjeset Ne Hyrje</th>
+                            <th>Opsion</th>
+                        </tr>
+                    </thead>
+                {% for j in voz%}
+                <tr class="item" style="font-size: 12px;">
+                    <td>{{j.Nr}}</td>
+                    <td><a href="{% url 'pagesatEins' j.pk%}">{{j.Emri}}</a></td>
+                    
+                    
+                    <td>{{j.Data}}</td>
+                    <td>{{j.Ora}}</td>
+                    <td>{{j.Pagesa}}</td>
+                    <td>{{j.Statusi}}</td>
+                    <td>{{j.PjesetNeHyrje}}</td>
+                    <td><a class="nav-link btn btn-warning" href="{% url 'editVoz' j.pk %}">Ndrysho</a></td>
+                </tr>
+                {% endfor %}
+                </table>
+                
+
+            </ul>
+            
+
+        </div>
+
+    </div>
+</body>
+<script src="js/scripts.js"></script>
+<script type="text/javascript" src="static/js/sort.js"></script>
+{% endblock content %}

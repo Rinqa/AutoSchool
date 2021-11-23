@@ -15,9 +15,12 @@
 
 
     }
-
-    tr {
-        width: 10%;
+    table{
+        
+        margin: auto;
+    }
+    tr{
+        width: 25%;
     }
 
     th {
@@ -45,58 +48,26 @@
                         <th>Emri</th>
                         <th>Prindi</th>
                         <th>Mbiemri</th>
-                        <th>Nr Personal</th>
-                        <th>Data Lindjes</th>
-
-                        <th>Qmimi Regjistrimit</th>
-                        <th>Nr Ore</th>
-                        <th>Borgje</th>
-                        <th>Instruktori</th>
-                        <th>Vendbanimi</th>
-                        <th>NrTelefonit</th>
-                        <th>Kursi</th>
-                        <th>Data Regjistrimit</th>
-                        <th>Tatimi</th>
-                        <th>Bank</th>
+                        <th>Borgj</th>
                     </tr>
 
                     {% for j in gjen %}
                     {% if j.Vijimi %}
                     <tr style="border: black;">
                         <td>{{j.nr}}</td>
-                        <td><a href="{% url 'updatecli' j.pk %}">{{j.Emri}}</a></td>
+                        <td><a href="{% url 'client' j.pk %}">{{j.Emri}}</a></td>
                         <td>{{j.Emri_Prindit}}</td>
                         <td>{{j.Mbiemri}}</td>
-                        <td>{{j.NrPersonal}}</td>
-                        <td>{{j.DataLindjes}}</td>
-                        <td>{{j.Qmimi_Regjistrimit}}</td>
-                        <td>{{j.numriOreve}}</td>
                         <td>{{j.borgj}}</td>
-                        <td>{{j.Instruktori}}</td>
-                        <td>{{j.Vendbanimi}}</td>
-                        <td>{{j.NrTelefonit}}</td>
-                        <td>{{j.Kursi}}</td>
-                        <td>{{j.data_Regjistrimit}}</td>
-                        <td>{{j.tatimi}}</td>
-                        <td>{{j.pagesaNeBank}}</td>
+                       
                     </tr>
                     {%else%}
                     <td class="vij">{{j.nr}}</td>
-                    <td class="vij"><a href="{% url 'updatecli' j.pk %}">{{j.Emri}}</a></td>
+                    <td class="vij"><a href="{% url 'client' j.pk %}">{{j.Emri}}</a></td>
                     <td class="vij">{{j.Emri_Prindit}}</td>
                     <td class="vij">{{j.Mbiemri}}</td>
-                    <td class="vij">{{j.NrPersonal}}</td>
-                    <td class="vij">{{j.DataLindjes}}</td>
-                    <td class="vij">{{j.Qmimi_Regjistrimit}}</td>
-                    <td class="vij">{{j.numriOreve}}</td>
                     <td class="vij">{{j.borgj}}</td>
-                    <td class="vij">{{j.Instruktori}}</td>
-                    <td class="vij">{{j.Vendbanimi}}</td>
-                    <td class="vij">{{j.NrTelefonit}}</td>
-                    <td class="vij">{{j.Kursi}}</td>
-                    <td class="vij">{{j.data_Regjistrimit}}</td>
-                    <td class="vij">{{j.tatimi}}</td>
-                    <td class="vij">{{j.pagesaNeBank}}</td>
+           
                     {%endif%}
                     {% endfor %}
                 </table>

@@ -1,3 +1,5 @@
+from datetime import date
+from django.http import request
 from django.shortcuts import render, redirect
 from django.core.files import File
 from django.views.generic import UpdateView
@@ -9,7 +11,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from Kosumi.forms import *
 
+
 # Create your views here.
+class DateInput(forms.DateInput):
+    input_type = 'date'
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
+
+def getKlie(request,pk):
+    cli = Klientat.objects.filter(id=pk)
+    return render(request, "home/cli.html",{'cli':cli})
 
 
 class editKlienti(UpdateView):
@@ -43,8 +54,9 @@ class editPagesenIns(UpdateView):
 
 
 def home(request):
+    voz = Voizitja.objects.filter(Data = datetime.now()).order_by('Ora')
     template_name = "home/home.html"
-    return render(request, "home/home.html")
+    return render(request, "home/home.html",{'voz':voz})
 
 def pagese(request):
     template_name = "home/krijoPages.html"
@@ -219,3 +231,27 @@ def pagesa(request):
 def pages(request):
     pag = pagesat.objects.all().order_by('viti')
     return render(request, 'home/pages.html', {'pag': pag})
+
+
+
+class vozEdit(UpdateView):
+    model = Voizitja
+    template_name = "home/editVoz.html"
+    fields = '__all__'
+    widgets = {'Data':DateInput(),'Ora':TimeInput()}
+@login_required
+def vozitja(request):
+    voz = Voizitja.objects.all().order_by("Data").order_by("-Ora")
+    return render(request,'home/vozitja.html',{'voz':voz})
+
+
+@login_required
+def shtoVoz(request):
+    if request.method == 'POST':
+        form = shtoVozitjen(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('regjistro-voz')
+    else:
+        form = shtoVozitjen()
+    return render(request, 'home/shtoKlientin.html', {'form': form})

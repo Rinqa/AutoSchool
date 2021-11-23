@@ -25,7 +25,7 @@ SECRET_KEY = '+fc*q_mk*%3)h(y_01%uz!m)zb8yhsk!5em&!&r1wmnq!na#hl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.71','127.0.0.1','192.168.0.36','192.168.43.138']
+ALLOWED_HOSTS = ['192.168.1.10','127.0.0.1','192.168.0.36','192.168.43.138']
 DATE_INPUT_FORMATS = ('%d/%m/%Y')
 
 # Application definition

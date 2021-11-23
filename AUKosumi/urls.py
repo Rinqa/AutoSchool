@@ -42,6 +42,10 @@ urlpatterns = [
     path('pages/', homeViews.pages, name="pags"),
     path('Klientat/PaTatim/', homeViews.cliPaTatim, name="patatim"),
     path('FletePagese/',homeViews.pagese,name='krijoPagese'),
+    path('Vozitja/',homeViews.vozitja,name="voz"),
+    path('shtoVoz/',homeViews.shtoVoz,name='regjistro-voz'),
+    path("cli/<int:pk>/",homeViews.getKlie,name="client"),
+    path("Vozitja/Edit/<int:pk>",vozEdit.as_view(),name="editVoz"),
 ]
 if (settings.DEBUG):
     urlpatterns += static(settings.MEDIA_URL,

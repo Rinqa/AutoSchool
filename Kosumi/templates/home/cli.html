@@ -1,0 +1,120 @@
+{%extends "home/Base.html"%}
+
+{% block content %}
+<div style="padding: 5%;">
+<div class="row gutter-sm">
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    {%for i in cli%}
+                        <h4> {{i.Emri}}   {{i.Mbiemri}}</h4>
+                        <h6>Data Lindjes: {{i.DataLindjes}} 
+                        <h6>Nr Personal: {{i.NrPersonal}}</h6>
+                        <h6>Numri Telefonit {{i.NrTelefonit}}</h6>
+                        {%if i.borgj > 0 %}
+                           <h5 style="color: red;"> Pa Paguar: {{i.borgj}}<b>€</b></h5>
+                        {%endif%}
+                        
+                        
+                        
+                    {% endfor%}
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    {% for i in cli%} 
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nr</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.nr}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Qmimi i Regjistrimit</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.Qmimi_Regjistrimit}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Nr Oreve</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.numriOreve}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Instruktori</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.Instruktori}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Vendbanimi</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.Vendbanimi}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Data Regjistrimit</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.data_Regjistrimit}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Tatimi</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.tatimi}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Ka Terhequr Dokumentat:</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {% if i.TerheqjaDokumenteve%}
+                            Po
+                            {%else%}
+                            Jo
+                            {%endif%}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Vijimi</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {% if i.Vijimi%}
+                            Aktiv
+                            {%else%}
+                            Jo Aktiv
+                            {%endif%}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Data Terheqjes se Dokumentave</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.dataTerheqjes}}
+                        </div>
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Pagesa ne Bank</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{i.pagesaNeBank}}
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <a class="btn btn-info" href="{% url 'updatecli' i.id %}">Ndrysho</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+{% endblock content %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 from phonenumber_field.modelfields import PhoneNumberField
 from datetime import datetime
 from django.urls import reverse
@@ -98,4 +99,20 @@ class pagesatEinstruktorve(models.Model):
     def get_absolute_url(self):
         return reverse('pagins')
     
+
+class Voizitja(models.Model):
+    Nr  = models.IntegerField()
+    Emri = models.CharField(max_length=500)
+    Data = models.DateField()
+    Ora = models.TimeField()
+    Pagesa = models.IntegerField()
+    Statusi = models.CharField(max_length=100)
+    PjesetNeHyrje = models.IntegerField()
+
+    def __str__(self):
+        return self.Emri+ " " + str(self.Data) +" " + str(self.Ora)
+    def get_absolute_url(self):
+        return reverse('voz')
+
+
 

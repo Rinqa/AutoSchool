@@ -58,7 +58,7 @@
                             {% if j.Vijimi %}
 
                                 <td>{{j.nr}}</td>
-                                <td><a href="{% url 'updatecli' j.pk%}">{{j.Emri}}</a></td>
+                                <td><a href="{% url 'client' j.pk%}">{{j.Emri}}</a></td>
                                 <td>{{j.Emri_Prindit}}</td>
                                 <td>{{j.Mbiemri}}</td>
                                 <td>{{j.NrPersonal}}</td>
@@ -80,7 +80,7 @@
                                 <td>{{j.pagesaNeBank}}</td>
                             {%else%}
                                 <td class="vij">{{j.nr}}</td>
-                                <td class="vij"><a href="{% url 'updatecli' j.pk%}">{{j.Emri}}</a></td>
+                                <td class="vij"><a href="{% url 'client' j.pk%}">{{j.Emri}}</a></td>
                                 <td class="vij">{{j.Emri_Prindit}}</td>
                                 <td class="vij">{{j.Mbiemri}}</td>
                                 <td class="vij">{{j.NrPersonal}}</td>
